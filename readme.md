@@ -26,3 +26,30 @@ a. Implement a function to add new vehicles to the system and return the newly a
 b. Write a function to start a vehicle and handle any errors that may occur.
 
 c. Implement a function to stop a vehicle 
+
+
+
+//how I initialised github?
+
+1. went to github to create repo
+2. git init on terminal
+3. git config user.email "24arushisharma@gmail.com"
+4. git remote add origin "<repo-link>" 
+a. remote -> connection/alias that points your local git repo to the repo on github
+b. origin -> new remote 
+
+
+Car
+ ├── Vehicle
+ │     ├── Brand
+ │     ├── Model
+ │     ├── Year
+ │     └── Color
+ ├── Doors
+ └── Engine
+
+ Car{
+    Vehicle{Brand:brand, Model:model, Year:year, Color:color},
+    4,
+    "V6",
+}

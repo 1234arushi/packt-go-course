@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Vehicle struct {
 	Brand string
@@ -76,6 +79,55 @@ func (m MotorCycle) Steer() {
 	fmt.Printf("Steering the %s motorcyles with %d wheels\n", m.Brand, m.NumWheels)
 }
 
+func AddVehicle(vechileType, brand, model string, year int, color string) (VehicleInterface, error) {
+	switch vechileType {
+	case "car":
+		//composite literal
+		return Car{Vehicle{Brand: brand, Model: model, Year: year, Color: color}, 4, "gasoline"}, nil
+	case "boat":
+		return Boat{Vehicle{Brand: brand, Model: model, Year: year, Color: color}, 20, "motor"}, nil
+	case "motorcycle":
+		return MotorCycle{Vehicle{Brand: brand, Model: model, Year: year, Color: color}, 2, false}, nil
+	default:
+		return nil, VehicleError{VehicleType: "Unknown", Err: errors.New("invalid vehicle type")}
+	}
+}
+
+func VehicleAbilities(v VehicleInterface) {
+	v.Start()
+	v.Steer()
+	v.Stop()
+
+}
+func doRecover() {
+	if r := recover(); r != nil {
+		// r-> stores panic value
+		fmt.Println("Recovered from panic : ", r)
+	}
+}
+
 func main() {
+	defer doRecover()
+	car, err := AddVehicle("car", "Toyota", "Camry", 2020, "blue")
+	if err != nil {
+		fmt.Println("error adding car: ", err)
+		return
+
+	}
+	boat, err := AddVehicle("boat", "Bayline", "Element", 2018, "white")
+	if err != nil {
+		fmt.Println("error adding boat: ", err)
+		return
+
+	}
+	motorcycle, err := AddVehicle("motorcycle", "Harley-Davidson", "Street Glide", 2022, "black")
+	if err != nil {
+		fmt.Println("error adding motorcycle: ", err)
+		return
+
+	}
+	VehicleAbilities(car)
+	VehicleAbilities(boat)
+	VehicleAbilities(motorcycle)
 
 }

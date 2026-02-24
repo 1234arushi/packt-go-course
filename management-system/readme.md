@@ -1,0 +1,1 @@
+The Contact Management System projecr focuses on practical application of core Go concepts.It aims to provide users with a simple yet effective tool for managing their contacts through a command-line interface.

@@ -28,15 +28,18 @@ b. Write a function to start a vehicle and handle any errors that may occur.
 c. Implement a function to stop a vehicle 
 
 
+//Git -> a version control system,it keeps tracks of changes in your code over time
 
 //how I initialised github?
 
 1. went to github to create repo
-2. git init on terminal
+2. git init on terminal(to tell Git to start tracking this folder; make this folder a git repo)
 3. git config user.email "24arushisharma@gmail.com"
 4. git remote add origin "<repo-link>" 
-a. remote -> connection/alias that points your local git repo to the repo on github
-b. origin -> new remote 
+a. remote -> connection/alias that points your local git repo(main) to the remote repo on github(origin)
+b. origin -> new remote repo
+
+5. git remote set-url origin https://github.com/1234arushi/packt-go-course.git [helps in re-setting the origin]
 
 
 Car

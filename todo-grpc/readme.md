@@ -26,7 +26,7 @@ todo.proto -> this defines message types,service methods,request/response struct
 } -> rpc[remote call procedure] : call a function that runs on another machine/server
 -> rpc CreateTodo(NewTodo) returns(Todo){} : client sends NewTodo,server processes it and returns Todo
 ->service body defines the methods that will be called by client and implemented by server
-5.  protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative proto\todo.proto(to compile it) but must do->brew install protobuf(to install protoc : compiler)
+5.  protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative proto/todo.proto(to compile it) but must do->brew install protobuf(to install protoc : compiler)
 
 after compilation of .proto file is done,we get two files: todo_grpc.pb.go and todo.pb.go
 
